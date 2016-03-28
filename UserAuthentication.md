@@ -13,4 +13,85 @@ I'll be using the auth application provided as part of a standard Django install
 First off you eed to make sure that the relevant settings are present in your project's settings.py file.  
 
 Within the settings.py file find the INSTALLED APPS tuple and check that **django.contrib.auth** and **django.contrib.contenttypes** are listed.  
+
+**django.contrib.auth** provides Django with access to the authentication system.  
+**django.contrib.contenttypes** is used by the authentication application to track models inside your database.  
+
+NOTE: if you had to add the apps yourself to the INSTALLED APPS, you will have to run the python manage.py migrate command  
+
+###PASSWORD MANAGEMENT  
+
+Django provides a flexible password storage system and uses PBKDF2 by default, with a SHA256 hash, a password stretching mechanism recommended by NIST. This should be sufficient for most users: it’s quite secure, requiring massive amounts of computing time to break.  
+
+Django chooses the alogrithm to use by cosulting the PASSWORD HASHERS setting. This is a list of hashing algorithm classes that this Django installation supports.  
+
+The first entry in the list (that is settings.PASSWORD_HASHERS[0]) will be used to store passwords, all the other entries are valid hashers that can be used to check existing passwords.
+
+The default list usuall looks like this:  
     
+    PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    'django.contrib.auth.hashers.SHA1PasswordHasher',
+    'django.contrib.auth.hashers.MD5PasswordHasher',
+    'django.contrib.auth.hashers.CryptPasswordHasher',
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
