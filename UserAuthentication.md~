@@ -62,9 +62,45 @@ The User model comes complete with five primary attributes:
     the user’s first name;  
     the user’s surname.  
     
-The model also comes with other attributes such as is_active(which determines whether a particular account is active or not)
+The model also comes with other attributes such as is_active(which determines whether a particular account is active or not)  
 
 
+An example model for a User profile:  
+
+class UserProfile(models.Model):  
+ # This line is required. Links UserProfile to a User model instance.  
+    user = models.OneToOneField(User)  
+    
+    
+    # The additional attributes one wishes to include.  
+    website = models.URLField(blank=True)  
+    picture = models.ImageField(upload_to='profile_images', blank=True)  
+    
+     Override the __unicode__() method to return out something meaningful  
+    def _unicode_(self):  
+        return self.user.username  
+
+After referencing, you have to import within the models.py  
+
+ **from django.contrib.auth.models import User**  
+ 
+ with the user profile model defined, now edit the admin.py to include the new IserProfile model in Django's admin. web interface.  
+ In the admin.py file, add the following:  
+    
+    from django.models import UserProfile  
+    
+    admin.site.register(UserProfile)  
+    
+    After this run python manage.py make migrations to create the migration scripts for the new UserProfile model. Then run python manage,py migrate
+
+###Creating a User Registration View and Template  
+
+To provide the user registration functionality I will go through the following steps:
+Create a UserForm and UserProfileForm.
+Add a view to handle the creation of a new user.
+Create a template that displays the UserForm and UserProfileForm.
+Map a URL to the view created.
+Link the index page to the register page
 
 
 
