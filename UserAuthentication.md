@@ -51,6 +51,21 @@ To use bcrypt, install the library by running:
 'django.contrib.auth.hashers.BCryptPasswordHasher',  
 
 
+###The User Model  
+The core of Django's authentication system is the User object, located at **django.contrib.auth.models.User**. A user object represents each of the people interacting with a django application. Django Docs states that they are used to allow aspects of the authentication system like access restriction, registration of new user profiles and the association of creators with site content.  
+
+The User model comes complete with five primary attributes:  
+
+    the username for the user account;  
+    the account’s password;  
+    the user’s email address;  
+    the user’s first name;  
+    the user’s surname.  
+    
+The model also comes with other attributes such as is_active(which determines whether a particular account is active or not)  
+
+
+
 
 
 
