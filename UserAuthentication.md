@@ -29,15 +29,28 @@ The first entry in the list (that is settings.PASSWORD_HASHERS[0]) will be used 
 
 The default list usuall looks like this:  
     
-    PASSWORD_HASHERS = [
-    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
-    'django.contrib.auth.hashers.BCryptPasswordHasher',
-    'django.contrib.auth.hashers.SHA1PasswordHasher',
-    'django.contrib.auth.hashers.MD5PasswordHasher',
-    'django.contrib.auth.hashers.CryptPasswordHasher',
-]
+    PASSWORD_HASHERS = [  
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',  
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',  
+   'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',  
+    'django.contrib.auth.hashers.BCryptPasswordHasher',  
+    'django.contrib.auth.hashers.SHA1PasswordHasher',  
+    'django.contrib.auth.hashers.MD5PasswordHasher',  
+    'django.contrib.auth.hashers.CryptPasswordHasher',  
+]  
+
+###Using bcrypt with Django.  
+
+Bcrypt is a popular password storage algorith that's specifically designed for long term password storage.  
+To use bcrypt, install the library by running:  
+    pip install bcrypt // pip install django[bcrypt]  
+    
+    Modify PASSWORD_HASHERS to list BCryptSHA256PasswordHasher first as:  
+    
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',  
+'django.contrib.auth.hashers.BCryptPasswordHasher',  
+
+
 
 
 
