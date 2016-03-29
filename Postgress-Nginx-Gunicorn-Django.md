@@ -94,6 +94,42 @@ If you already have a virtual environment, activate it and run the following to 
 We're now ready to roll!   
 
 
+Open the settigns.py file in order to setup Postgres
+
+Change this...  
+            DATABASES = {  
+        'default': {  
+        'ENGINE': 'django.db.backends.sqlite3',  
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  
+    }  
+}  
+
+To this...  
+
+         DATABASES = {  
+        'default': {  
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',  
+        'NAME': 'myproject',  
+        'USER': 'myprojectuser',  
+        'PASSWORD': 'password',  
+        'HOST': 'localhost',  
+        'PORT': '',  
+    }  
+}  
+
+Done? root back to main, Make migrations, migrate  
+
+         python manage.py makemigrations  
+         python manage.py migrate  
+         
+After this, the database structure has been defined so now we can create an administrative account by typing:  
+
+         python manage.py createsuperuser  
+         
+You will be prompted to select a username, provide an email address and choose and confirm your password. Now you can test your database by running the server.  
+         
+
+
 ###Install NGINX  
 NGINX is and incredibly fast and light-weight web server. We will use it to serve up our static files for our Django app.  
 
