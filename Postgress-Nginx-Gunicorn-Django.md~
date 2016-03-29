@@ -50,5 +50,9 @@ First off we have to install dependaencies for PostrgeSQL to work with Django wi
         
         sudo apt-get install postgresql postgresql-contrib  
         
-We're now ready to roll!        
+We're now ready to roll!   
+
+
+###Install NGINX  
+
         

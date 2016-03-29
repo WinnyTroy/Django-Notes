@@ -51,4 +51,10 @@ First off we have to install dependaencies for PostrgeSQL to work with Django wi
         sudo apt-get install postgresql postgresql-contrib  
         
 We're now ready to roll!   
+
+
+###Install NGINX  
+NGINX is and incredibly fast and light-weight web server. We will use it to serve up our static files for our Django app.  
+
+        sudo apt-get install nginx
         
