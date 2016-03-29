@@ -50,6 +50,47 @@ First off we have to install dependaencies for PostrgeSQL to work with Django wi
         
         sudo apt-get install postgresql postgresql-contrib  
         
+        
+By default, Postgres uses an authentication scheme called "peer authentication" for local connections. Basically, this means that if the user's operating system username matches a valid Postgres username, that user can login with no further authetication.  
+
+We need to change the current user to perform administrative tasks:  
+        
+        sudo su - postgres
+  You should now be in a shell session so login into a Postgres session using:  
+        
+        psql
+        
+To create a database, type in this command:  
+        CREATE DATABASE <databaseName>;
+        
+ Next we create a database user which we'll use to connect to ad interact with the database. Make sure to set the password to something strong and secure:  
+ 
+ 
+        CREATE USER <myprojectuser> WITH PASSWORD 'password';  
+        
+Next up we set up the default encoding, default transaction isolation scheme and lastly, the timezone.  
+
+        ALTER ROLE myprojectuser SET client_encoding TO 'utf8';  
+        ALTER ROLE myprojectuser SET default_transaction_isolation TO 'read committed';  
+        ALTER ROLE myprojectuser SET timezone TO 'UTC';  
+        
+ Then all we need to do is giving our database user access rights to the database we created:  
+ 
+ 
+        GRANT ALL PRIVILEGES ON DATABASE <databaseName> TO myprojectuser;  
+        
+        
+Exit the SQL prompt to get back to the postgres user's shell session using:  
+            
+          \q  
+Exit out of shell using:  
+            
+            exit
+        
+If you already have a virtual environment, activate it and run the following to install Postgres Django dependency.  
+
+            pip install django psycopg2
+        
 We're now ready to roll!   
 
 
@@ -57,4 +98,8 @@ We're now ready to roll!
 NGINX is and incredibly fast and light-weight web server. We will use it to serve up our static files for our Django app.  
 
         sudo apt-get install nginx
+        
+        
+        
+
         
