@@ -64,22 +64,25 @@ The User model comes complete with five primary attributes:
     
 The model also comes with other attributes such as is_active(which determines whether a particular account is active or not)  
 
+###Additional User Attributes
+If you would like to include other attributes than what is provided by the User model, then you have two options: (1) extend the User model by creating a new user model from AbstractUser.(2) create a model with a one-to-one association with the the ``User` model.We'll be taking option 2.
 
 An example model for a User profile:  
 
-class UserProfile(models.Model):  
- # This line is required. Links UserProfile to a User model instance.  
-    user = models.OneToOneField(User)  
+        class UserProfile(models.Model):  
+    # This line is required. Links UserProfile to a User model      instance.  
+        user = models.OneToOneField(User)  
     
     
     # The additional attributes one wishes to include.  
-    website = models.URLField(blank=True)  
-    picture = models.ImageField(upload_to='profile_images', blank=True)  
+        website = models.URLField(blank=True)  
+        picture = models.ImageField(upload_to='profile_images',     blank=True)  
     
-     Override the __unicode__() method to return out something meaningful  
-    def _unicode_(self):  
+     #Override the __unicode__() method to return out something meaningful  
+        def _unicode_(self):  
         return self.user.username  
 
+Note that the User model is using a One to One relationship
 After referencing, you have to import within the models.py  
 
  **from django.contrib.auth.models import User**  
@@ -96,12 +99,33 @@ After referencing, you have to import within the models.py
 ###Creating a User Registration View and Template  
 
 To provide the user registration functionality I will go through the following steps:
-Create a UserForm and UserProfileForm.
-Add a view to handle the creation of a new user.
-Create a template that displays the UserForm and UserProfileForm.
-Map a URL to the view created.
-Link the index page to the register page
+        Create a UserForm and UserProfileForm.  
+        Add a view to handle the creation of a new user.  
+        Create a template that displays the UserForm and UserProfileForm.  
+        Map a URL to the view created.  
+        Link the index page to the register page  
 
+In the forms.py you need to create two classes inheriting from forms.ModelForm. We'll be creating one for the base User Class, as well as one for the new UserProfile model that we just created. The two ModelForm inheriting classes allow us to display a HTML form displaying the necessary form fields for a particular model.  
+
+
+        class UserForm(forms.ModelForm):  
+            password = forms.CharField(widget=forms.PasswordInput())  
+            
+            class Meta:  
+                model = User  
+                fields = ('username', 'email', 'password')  
+                
+        class UserProfileForm(forms.ModelForm):  
+            class Meta:  
+                model = UserProfile  
+                fields = ('website', 'picture')    
+                
+Each Meta class must at a bare minimum supply a model field, which references back to the model the ModelForm inheriting class should relate to. UserForm also includes a definition of the password attribute. While a User model instance contains a password attribute by default, the rendered HTML form element will not hide the password. But if a user types in the password, it will be visible!. By updating the password attribute, we can then specify the CharField instance should hide a user's input from prying eyes through use of the PasswordInput() widget  
+
+Finally, don't forget to include the required classes at the top of the forms.py model.  
+            from django import forms
+            from django.contrib.auth.models import User
+            from rango.models import UserProfile
 
 
 
