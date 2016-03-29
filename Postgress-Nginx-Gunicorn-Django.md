@@ -37,6 +37,18 @@ This should Do;
  
         
 ###Install PostgreSQL  
-     
+
+Most Django Devs prefer PostrgeSQL as their database server. It's much more robust than MySQL and it works well with the Django ORM.  
+We won't be needing the virtual environment for this step, run the following command to deactivate:  
+        deactivate
         
+First off we have to install dependaencies for PostrgeSQL to work with Django with the command:  
+        
+        sudo apt-get install libpq-dev python-dev
+        
+  Then istall PostrgeSQL like so:   
+        
+        sudo apt-get install postgresql postgresql-contrib  
+        
+We're now ready to roll!   
         
