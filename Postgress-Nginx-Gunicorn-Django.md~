@@ -121,6 +121,13 @@ Done? root back to main, Make migrations, migrate
 
          python manage.py makemigrations  
          python manage.py migrate  
+         
+After this, the database structure has been defined so now we can create an administrative account by typing:  
+
+         python manage.py createsuperuser  
+         
+You will be prompted to select a username, provide an email address and choose and confirm your password. Now you can test your database by running the server.  
+         
 
 
 ###Install NGINX  
