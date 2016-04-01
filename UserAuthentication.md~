@@ -122,7 +122,11 @@ In the forms.py you need to create two classes inheriting from forms.ModelForm. 
                 
 Each Meta class must at a bare minimum supply a model field, which references back to the model the ModelForm inheriting class should relate to. UserForm also includes a definition of the password attribute. While a User model instance contains a password attribute by default, the rendered HTML form element will not hide the password. But if a user types in the password, it will be visible!. By updating the password attribute, we can then specify the CharField instance should hide a user's input from prying eyes through use of the PasswordInput() widget  
 
-Finally, don't forget to include the required classes at the top of the forms.py model.
+Finally, don't forget to include the required classes at the top of the forms.py model.  
+            from django import forms
+            from django.contrib.auth.models import User
+            from rango.models import UserProfile
+
 
 
 

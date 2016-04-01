@@ -43,12 +43,13 @@ The default list usuall looks like this:
 
 Bcrypt is a popular password storage algorith that's specifically designed for long term password storage.  
 To use bcrypt, install the library by running:  
-    pip install bcrypt // pip install django[bcrypt]  
+
+        pip install bcrypt // pip install django[bcrypt]  
     
     Modify PASSWORD_HASHERS to list BCryptSHA256PasswordHasher first as:  
     
-    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',  
-'django.contrib.auth.hashers.BCryptPasswordHasher',  
+        'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',  
+        'django.contrib.auth.hashers.BCryptPasswordHasher',  
 
 
 ###The User Model  

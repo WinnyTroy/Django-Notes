@@ -133,7 +133,9 @@ You will be prompted to select a username, provide an email address and choose a
 ###Install NGINX  
 NGINX is and incredibly fast and light-weight web server. We will use it to serve up our static files for our Django app.  
 
-        sudo apt-get install nginx
+        sudo apt-get install nginx  
+  
+Note nginx hasn't been started, this will be when we setup our VPN.  
         
         
         

@@ -136,6 +136,7 @@ NGINX is and incredibly fast and light-weight web server. We will use it to serv
         sudo apt-get install nginx  
   
 Note nginx hasn't been started, this will be when we setup our VPN.  
+
         
         
         
