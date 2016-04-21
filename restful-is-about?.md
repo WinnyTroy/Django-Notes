@@ -9,72 +9,72 @@ This last one is most likely the most important in terms of consequences and ove
 ####A Simple REST API 
 The API below simply fetches data from a web app to be delivered to another application, could be mobile or web. Note this is a simple demo, it also doesn't involve an oauth  system.
 
-#####Requirements:(probaby the newwest versions)  
-Django==1.9  
-psycopg2==2.6.1  
-pycparser==2.14  
-wsgiref==0.1.2  
-djangorestframework  
+#####Requirements:(probaby the newest versions)  
+			Django==1.9  
+			psycopg2==2.6.1  
+			pycparser==2.14  
+			wsgiref==0.1.2  
+			djangorestframework  
 
 First off start your project, """django-admin.py startproject Marine """ 
 Here's how your structire should look:  
-projectFolder/  
-  			Myenv/
-      		Marine/  
-				admin.py    
-				manage.py  
-				db.sqlite3 
-			Marine/ 
+			projectFolder/  
+  					Myenv/
+      					Marine/  
+						admin.py    
+						manage.py  
+						db.sqlite3 
+						Marine/ 
 
 		
 Register a new application - """python manage.py startapp fish"""
 Now it should be something like this:  
 
-projectFolder/  
-  			Myenv/
-      		Marine/
-      			Marine/
-      					__init__.py  
-      					settings.py  
-      					urls.py  
-      					wsgi.py
-      			fish/
-					__init__.py  
-					admin.py  
-					apps.py
-					migrations/  
-					models.py  
-					views.py   
-					urls.py (you can add your custom urls here)      
-				admin.py    
-				manage.py  
-				db.sqlite3
+			projectFolder/  
+  					Myenv/
+      						Marine/
+      							Marine/
+      								__init__.py  
+      								settings.py  
+      								urls.py  
+      								wsgi.py
+      							fish/
+								__init__.py  
+								admin.py  
+								apps.py
+								migrations/  
+								models.py  
+								views.py   
+								urls.py (you can add your custom urls here)      
+							admin.py    
+							manage.py  
+							db.sqlite3
 				
 
 #####In my settings.py:  
-INSTALLED_APPS = [  
-    'django.contrib.admin',  
-    'django.contrib.auth',  
-    'django.contrib.contenttypes',  
-    'django.contrib.sessions',  
-    'django.contrib.messages',  
-    'django.contrib.staticfiles',  
-    'fishes',  (my app name :-) )  
-    'rest_framework'  (important for the api)
-]  
+		INSTALLED_APPS = [  
+    			'django.contrib.admin',  
+    			'django.contrib.auth',  
+    			'django.contrib.contenttypes',
+    			'django.contrib.sessions',  
+    			'django.contrib.messages',  
+    			'django.contrib.staticfiles',  
+    			'fishes',  (my app name :-) )  
+    			'rest_framework'  (important for the api)
+		]  
 
 I like using postgres, it's a very efficient db especially when querrying.
 
-DATABASES = {  
-    'default': {  
-        'ENGINE': 'django.db.backends.postgresql',  
-        'NAME': 'username',  
-        'USER': 'user',  
-        'PASSWORD': 'password',  
-        'HOST': 'localhost', (Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.)  
-        'PORT': '',   
-    }  
-}  
+		DATABASES = {  
+    			'default': {  
+        		'ENGINE': 'django.db.backends.postgresql',  
+        		'NAME': 'username',  
+        		'USER': 'user',
+        		'PASSWORD': 'password',  
+        		'HOST': 'localhost', (Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.)
+        		'PORT': '',   
+    			}  
+			}  
 
 Our API, 'Marine' will be  getting fish data :-)  
 First off we'll need a fish model, this will also register our fish in the database as a table. Here's the model, in Models.py;  
