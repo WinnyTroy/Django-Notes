@@ -16,7 +16,7 @@ The API below simply fetches data from a web app to be delivered to another appl
 			wsgiref==0.1.2  
 			djangorestframework  
 
-First off start your project, """django-admin.py startproject Marine """ 
+First off start your project,  **django-admin.py startproject Marine** 
 Here's how your structire should look:  
 			projectFolder/  
   					Myenv/
@@ -27,7 +27,7 @@ Here's how your structire should look:
 						Marine/ 
 
 		
-Register a new application - """python manage.py startapp fish"""
+Register a new application - **python manage.py startapp fish**
 Now it should be something like this:  
 
 			projectFolder/  
@@ -84,18 +84,17 @@ First off we'll need a fish model, this will also register our fish in the datab
 				created = models.DateTimeField('auto_now_add=True')  date it was "delivered" to the port  
 				active = models.BooleanField()  
 
-Try and run the server with """python manage.py runserver""". Django will notify you about some migrations to make? well, that's creating the actual tables in the database ;-)  
+Try and run the server with **python manage.py runserver**. Django will notify you about some migrations to make? well, that's creating the actual tables in the database ;-)  
 
 In order to access the admin interface, you also require an account, run the following command:  
-		""" python manage.py create superuser """  
+		**python manage.py create superuser**  
 follow the steps described.
 
 Root to the folder 'admin.py', here we'll register our application in the admin interface.  
-First add an import: from fish.models import Fish  
+				First add an import: from fish.models import Fish  
+				then add : admin.site.register(Fish). 
 
-then add : admin.site.register(Fish). 
-
-run the server and access the admin, the address should be 127.0.0.1:8000/admin 
+run the server and access the admin, the address should be **127.0.0.1:8000/admin** 
 
 Are you using Version Control? This is probably a good time to commit.
 
