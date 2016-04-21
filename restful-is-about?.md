@@ -19,12 +19,12 @@ The API below simply fetches data from a web app to be delivered to another appl
 First off start your project,  **django-admin.py startproject Marine** 
 Here's how your structire should look:  
 			projectFolder/  
-  					Myenv/
-      					Marine/  
-						admin.py    
+					Myenv/  
+					Marine/  
+						admin.py  
 						manage.py  
-						db.sqlite3 
-						Marine/ 
+						db.sqlite3  
+					Marine/ 
 
 		
 Register a new application - **python manage.py startapp fish**
