@@ -24,21 +24,21 @@ here = lambda *dirs: join(abspath(dirname(__file__)), *dirs)
 BASE_DIR = here("..", "..")  
 root = lambda *dirs: join(abspath(BASE_DIR), *dirs)  
 
-#Confirguring MEDIA_ROOT  
+####Confirguring MEDIA_ROOT  
 
 MEDIA_ROOT = root("media")  
 
-#Confirguring STATIC_ROOT  
+####Confirguring STATIC_ROOT  
 
 STATIC_ROOT = root("collected_static")  
 
-#Additional locations of static files  
+####Additional locations of static files  
 
 STATICFILES_DIRS = (  
 	root("assets"),  
 	)  
 
-#Configuring TEMPLATE_DIRS  
+####Configuring TEMPLATE_DIRS  
 
 TEMPLATES = [  
 	{  
