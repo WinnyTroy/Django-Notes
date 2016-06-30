@@ -61,7 +61,7 @@ We need to change the current user to perform administrative tasks:
         psql
         
 To create a database, type in this command:  
-        CREATE DATABASE <databaseName>;
+        CREATE DATABASE databaseName;
         
  Next we create a database user which we'll use to connect to ad interact with the database. Make sure to set the password to something strong and secure:  
  
